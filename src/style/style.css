@@ -1,0 +1,66 @@
+*{
+    box-sizing: border-box;
+}
+.conteudo{
+    background-color: #FB6B6B;
+    width: 100vw;
+    
+}
+.imagemLogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.imagemLogo .textoLogo{
+    font-family: "Recursive", sans-serif;
+    color: white;
+    padding-left: 20px;
+    font-weight: 400;
+}
+.imagemLogo img{
+    width: 52px;
+    height: 60px;
+}
+.centralizarCards{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 60px;
+}
+.pergunta{
+    background-color:#FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    height: 65px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.pergunta h1{
+    font-family: "Recursive", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+}
+button{
+    width: 20px;
+    height: 23px;
+    border: none;
+    cursor: pointer;
+}
+.Conclusion {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    z-index: 1; 
+    font-family: "Recursive", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}

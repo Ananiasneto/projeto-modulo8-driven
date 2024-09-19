@@ -1,11 +1,13 @@
+import Logo from './components/Logo'
+import Deck from './components/Deck'
 
-function App() {
+export default function App() {
   
   return (
-    <>
-    <h1>opa</h1>
-    </>
+    <div className="conteudo">
+    <div className="imagemLogo"><Logo/></div>
+    <Deck/>
+    </div>
   )
 }
 
-export default App;
