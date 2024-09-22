@@ -1,6 +1,4 @@
-*{
-    box-sizing: border-box;
-}
+
 .conteudo{
     background-color: #FB6B6B;
     width: 100vw;
@@ -26,7 +24,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 60px;
+    padding-bottom: 70px;
 }
 .pergunta{
     background-color:#FFFFFF;
@@ -40,6 +38,7 @@
     padding-right: 15px;
     padding-left: 15px;
 }
+
 .pergunta h1{
     font-family: "Recursive", sans-serif;
     font-weight: 700;
@@ -50,6 +49,7 @@ button{
     height: 23px;
     border: none;
     cursor: pointer;
+    background-color: transparent;
 }
 .Conclusion {
     position: fixed;
@@ -58,9 +58,22 @@ button{
     right: 0;
     background-color: #FFFFFF;
     text-align: center;
-    padding: 10px;
     z-index: 1; 
     font-family: "Recursive", sans-serif;
     font-weight: 400;
     font-size: 18px;
+}
+
+.selecionada{
+    height: 131px;
+    background-color: #ffffd4;
+
+}
+.selecionada .botao{
+    align-self: flex-end;
+    margin-right: 15px;
+}
+.selecionada .imgBotao{
+    width: 30px;
+    
 }
