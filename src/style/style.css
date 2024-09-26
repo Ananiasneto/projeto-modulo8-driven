@@ -127,8 +127,15 @@
 .certo{
     background-color: #2fbe34;
 }
-.escolhida{
+.escolhidaErrada{
     text-decoration: line-through;
     color: #ff3030;
-
+}
+.escolhidaQuase{
+    text-decoration: line-through;
+    color:#e98930;
+}
+.escolhidaCerta{
+    text-decoration: line-through;
+    color: #2fbe34;
 }

@@ -1,9 +1,7 @@
 import { useState } from "react";
-import icone_certo from "..//assets/icone_certo.png";
-import icone_errado from "../assets/icone_erro.png";
-import icone_quase from "../assets/icone_quase.png";
+import styled from 'styled-components'
 
-export default function Feedback({index,setQuestao,setControle}){
+export default function Feedback({index,setQuestao,setControle,mudaCor,icone_errado,icone_certo,icone_quase}){
     
     const[imagemFeed,setImagemFeed]=useState('');
     const[resposta,setResposta]=useState(false);
@@ -11,10 +9,13 @@ export default function Feedback({index,setQuestao,setControle}){
         setImagemFeed(imagem);
         setResposta(true);
         respostaFeed();
+        mudaCor(imagem);
+        
     }
     function respostaFeed(){
         setQuestao('pergunta ' +(index+1))
         setControle(true);
+        
     }
 
     return (
@@ -22,12 +23,44 @@ export default function Feedback({index,setQuestao,setControle}){
      <><div>
         <img src={imagemFeed} alt="" />
      </div>
-    <div className={resposta ? 'feed': 'feedBack'}>
-        <div className= "errado"><button onClick={()=>selecionada(icone_errado)}>não lembrei </button></div>
-        <div className="quase"><button onClick={()=>selecionada(icone_quase)}>quase não lembrei</button></div>
-        <div className="certo"><button onClick={()=>selecionada(icone_certo)}>zap</button></div>
-    </div>
+        <Feed resposta={resposta}>
+        <Errado><button onClick={()=>selecionada(icone_errado)}>não lembrei</button></Errado>
+        <Quase><button onClick={()=>selecionada(icone_quase)}> quase não lembrei</button></Quase>
+        <Certo><button onClick={()=>selecionada(icone_certo)}>zap</button></Certo>
+        </Feed> 
       
      </> 
      )
  }
+
+ const Feed = styled.div`
+  ${({ resposta }) => 
+    resposta 
+      ? `display: none;` 
+      : `
+        display: flex;
+        justify-content: space-around;
+
+        div {
+          display: flex;
+          justify-content: center;
+          width: 85px;
+          height: 38px; 
+          border-radius: 8px;
+        }
+
+        button {
+          font-family: "Recursive", sans-serif;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 14.4px;
+          color: #FFFFFF;
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+      `}
+`;
+const Certo = styled.div`background-color: #2fbe34;`
+const Quase= styled.div`background-color: #e98930;`
+const Errado = styled.div`background-color: #ff3030;`
