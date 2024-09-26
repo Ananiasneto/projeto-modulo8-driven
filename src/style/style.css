@@ -44,7 +44,7 @@
     font-weight: 700;
     font-size: 16px;
 }
-button{
+.botao{
     width: 20px;
     height: 23px;
     border: none;
@@ -69,6 +69,12 @@ button{
     background-color: #ffffd4;
 
 }
+.selecionada h1{
+      font-family: "Recursive", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.6px;
+}
 .selecionada .botao{
     align-self: flex-end;
     margin-right: 15px;
@@ -76,4 +82,53 @@ button{
 .selecionada .imgBotao{
     width: 30px;
     
+}
+.feed{
+    display: none;
+}
+.feedBack {
+    display: flex;
+    justify-content: space-around;
+}
+
+.feedBack div {
+    display: flex;
+    justify-content: center;
+    width: 85px;
+    height: 38px; 
+    border-radius: 8px;
+}
+
+.feedBack button {
+    font-family: "Recursive", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.4px;
+    color: #FFFFFF;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.final{
+    padding-top: 13px;
+    display: block;
+    height: auto;
+    padding-bottom: 10px;
+}
+.errado
+{
+    background-color: #ff3030;
+}
+.quase{
+    background-color: #e98930;
+}
+.certo{
+    background-color: #2fbe34;
+}
+.escolhida{
+    text-decoration: line-through;
+    color: #ff3030;
+
 }
