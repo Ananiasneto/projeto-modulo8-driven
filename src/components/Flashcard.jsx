@@ -105,7 +105,7 @@ ${({ test, imagem, respondida, playImage}) => {
           align-items: center;
         `;
       } else {
-        console.log(' NAO Entrou na condição de playImage');
+        
         return `
           display: flex;
           height: 131px;
