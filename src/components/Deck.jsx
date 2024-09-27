@@ -10,7 +10,8 @@ const cards = [
     { question: "Quem era o pirata com a maior recompensa do East Blue antes de ser derrotado por Luffy?", answer: "Arlong" },
     { question: "Qual o maior sonho de Sanji?", answer: "Encontrar o All Blue" },
     { question: "Qual a principal característica de Ussop?", answer: "Mentiroso" },
-    { question: "O que Chopper é?", answer: "Uma rena" }
+    { question: "O que Chopper é?", answer: "Uma rena" },
+    { question: "Nome da mãe adotiva da nami?", answer: "Bell-mère" }
 ];
 
 export default function Deck() {

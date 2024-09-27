@@ -14,7 +14,7 @@ export default function Flashcard({pergunta,resposta,index,setConcluidas,conclui
    const [imagem,setImagem]=useState(playImage);
    const [respondida,setRespondida]=useState(false);
    const [controle,setControle]=useState(false);
-   const [cor,setCor]=useState('');
+   const [cor,setCor]=useState();
    const test=(imagem!==playImage && respondida===true) ? true:false ;
 
    function selecionado(){
@@ -30,8 +30,10 @@ export default function Flashcard({pergunta,resposta,index,setConcluidas,conclui
     setConcluidas(concluidas+1); 
     if (imagem === icone_errado) {
         setCor('escolhidaErrada');
+
     } else if (imagem === icone_certo) {
         setCor('escolhidaCerta');
+        
     } else if (imagem === icone_quase) {
         setCor('escolhidaQuase');
     }
@@ -44,43 +46,68 @@ export default function Flashcard({pergunta,resposta,index,setConcluidas,conclui
 
     <h1 className={cor} >{questao}</h1>
     
-    <button onClick={(imagem===playImage) ? selecionado : pedeFeedBack} className={(respondida) ? 'botao feed' : 'botao'}>
+    <Botao onClick={(imagem===playImage) ? selecionado : pedeFeedBack} imagem={imagem} imagemVirar={imagemVirar} respondida={respondida} >
         <img className="imgBotao" src={imagem} alt="" />
-       
-    </button>
-    <div className={(!respondida) ? 'feed' : ''}>
+    </Botao >
+    <FeedControle imagem={imagem} imagemVirar={imagemVirar} respondida={respondida} >
         <Feedback index={index} setQuestao={setQuestao} setControle={setControle} icone_certo={icone_certo} icone_errado={icone_errado} icone_quase={icone_quase} mudaCor={mudaCor}/>
-    </div>
+    </FeedControle>
    </Pergunta>
    </> 
     )
 }
+const FeedControle = styled.div`
+  ${({ imagem,imagemVirar,respondida }) => (imagem===imagemVirar && respondida===true) ? `
+    display:block;
+  ` : `display:none;
+    
+  `}
+`;
+
+const Botao = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  
+  
+
+  ${({ imagem,imagemVirar,respondida}) => (imagem===imagemVirar && respondida===true) ? `
+    display:none;
+  ` : `
+    display: flex;
+    align-items: flex-end;
+  `}
+`;
+
 const Pergunta = styled.div`
-background-color: #FFFFFF;
-display: flex;
-justify-content: space-between;
-align-items: center;
-width: 300px;
-height: 65px;
-margin-bottom: 25px;
-border-radius: 5px;
-padding-right: 15px;
-padding-left: 15px;
+  background-color:#FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  height: 65px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  padding-right: 15px;
+  padding-left: 15px;
 
 h1 {
   font-family: "Recursive", sans-serif;
   font-weight: 700;
   font-size: 16px;
 }
-${({ test, imagem, respondida, playImage }) => {
+${({ test, imagem, respondida, playImage}) => {
 
-  if (!test) {
-    if (imagem === playImage) {
-      console.log('Entrou na condição de playImage');
-      return ``;
-    } else {
-      console.log('Entrou na condição de imagem diferente');
-      return `
+    if (!test) {
+      if (imagem === playImage) {
+        return `
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        `;
+      } else {
+        console.log(' NAO Entrou na condição de playImage');
+        return `
+          display: flex;
           height: 131px;
           background-color: #ffffd4;
 
@@ -91,31 +118,39 @@ ${({ test, imagem, respondida, playImage }) => {
             line-height: 21.6px;
           }
 
-          .botao {
-            align-self: flex-end;
-            margin-right: 15px;
-          }
-
           .imgBotao {
             width: 30px;
           }
-      `
-      ;
-    }
-  } else {
-    if (respondida) {
-      console.log('Entrou na condição de respondida');
-      return `
-        background-color: #ffffd4;
-        padding-top: 13px;
-        display: block;
-        height: auto;
-        padding-bottom: 10px;
-      `;
+        `;
+      }
     } else {
-      console.log('Entrou na condição de não respondida');
-      return ``;
+      if (respondida) {
+
+        return `
+          background-color:#ffffd4;
+          display: block;
+          padding-top: 13px;
+          align-items: center; 
+          height: auto;
+          padding-bottom: 10px;
+          .escolhidaErrada{
+          text-decoration: line-through;
+          color: #ff3030;
+}
+        .escolhidaQuase{
+          text-decoration: line-through;
+         color:#e98930;
+}
+          .escolhidaCerta{
+          text-decoration: line-through;
+          color: #2fbe34;
+          padding-top: 13px;
+          display: flex;
+} 
+        `
+        ;
+      }}
     }
-  }
-}}
+
+}
 `;

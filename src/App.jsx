@@ -15,8 +15,6 @@ export default function App() {
 }
 const Conteudo=styled.div`
 background-color: #FB6B6B;
-width: 100vw;
-height: 100vh;
 background-size: cover; 
 `
 
